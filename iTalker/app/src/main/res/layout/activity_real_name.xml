@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/grey_300"
+    android:orientation="vertical"
+    tools:context="net.fengyun.italker.italker.activities.RealNameActivity">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/actionBarWithStatusBarSize"
+        android:background="@color/colorPrimary"
+        android:paddingTop="@dimen/statusBarSize" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/len_0"
+        android:layout_weight="1"
+        android:baselineAligned="false"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="@dimen/len_0"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:padding="@dimen/len_5">
+
+            <net.qiujuer.genius.ui.widget.TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/label_id_front"
+                android:textColor="@color/textPrimary"
+                android:textSize="@dimen/len_16" />
+
+            <ImageView
+                android:id="@+id/im_id_front"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/len_10"
+                android:contentDescription="@string/app_name"
+                android:gravity="center"
+                android:scaleType="fitCenter"
+                android:src="@drawable/default_portrait" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="@dimen/len_0"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:padding="@dimen/len_5">
+
+            <net.qiujuer.genius.ui.widget.TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/label_id_opposite"
+                android:textColor="@color/textPrimary"
+                android:textSize="@dimen/len_16" />
+
+            <ImageView
+                android:id="@+id/im_id_opposite"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/len_10"
+                android:contentDescription="@string/app_name"
+                android:gravity="center"
+                android:scaleType="centerInside"
+                android:src="@drawable/default_portrait" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="@dimen/len_0"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:padding="@dimen/len_5">
+
+            <net.qiujuer.genius.ui.widget.TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/label_hand_photo"
+                android:textColor="@color/textPrimary"
+                android:textSize="@dimen/len_16" />
+
+            <ImageView
+                android:id="@+id/im_id_hand_photo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/len_10"
+                android:contentDescription="@string/app_name"
+                android:gravity="center"
+                android:scaleType="centerInside"
+                android:src="@drawable/default_portrait" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <net.qiujuer.genius.ui.widget.Button
+        android:id="@+id/btn_submit"
+        android:layout_width="@dimen/len_172"
+        android:layout_height="@dimen/len_44"
+        android:layout_gravity="center"
+        android:background="@drawable/sel_btn_bg_black_alpha_44"
+        android:text="@string/label_login"
+        android:textColor="@color/white"
+        app:gTouchColor="@color/colorAccentAlpha"
+        app:gTouchCornerRadius="22dp"
+        app:gTouchEffect="ripple" />
+
+</LinearLayout>

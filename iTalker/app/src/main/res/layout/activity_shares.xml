@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/layout_pop"
+    android:background="@color/grey_300"
+    android:orientation="vertical"
+    tools:context="net.fengyun.italker.italker.activities.SharesActivity">
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/actionBarWithStatusBarSize"
+        android:background="@color/colorPrimary"
+        android:paddingTop="@dimen/statusBarSize" />
+
+    <android.support.design.widget.TabLayout
+        android:id="@+id/tabLayout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/len_48"
+        app:tabSelectedTextColor="@color/green_400"
+        app:tabTextColor="@color/black_alpha_48"
+        app:tabIndicatorColor="@color/green_400"
+        app:tabIndicatorHeight="@dimen/len_2"
+        app:tabGravity="fill"
+        app:tabMode="scrollable">
+
+    </android.support.design.widget.TabLayout>
+    <android.support.v4.view.ViewPager
+        android:id="@+id/pager"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <net.qiujuer.genius.ui.widget.Button
+            android:id="@+id/btn_submit"
+            android:layout_width="@dimen/len_172"
+            android:layout_height="@dimen/len_44"
+            android:layout_gravity="center"
+            android:background="@drawable/sel_btn_bg_black_alpha_44"
+            android:text="@string/label_login"
+            android:textColor="@color/white"
+            app:gTouchColor="@color/colorAccentAlpha"
+            app:gTouchCornerRadius="22dp"
+            app:gTouchEffect="ripple" />
+    </LinearLayout>
+
+</LinearLayout>

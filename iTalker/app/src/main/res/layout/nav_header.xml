@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/lay_bg"
+    android:layout_width="match_parent"
+    android:layout_height="180dp"
+    android:background="@color/colorPrimary"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
+    android:padding="@dimen/len_10">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/len_10"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/ic_autograph"
+            android:tint="@color/white" />
+
+        <TextView
+            android:id="@+id/txt_card"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/len_5"
+            android:layout_marginStart="@dimen/len_5"
+            android:layout_weight="1"
+            android:textColor="@color/white"
+            android:textSize="@dimen/len_14"
+            tools:text="签到" />
+
+        <ImageView
+            android:layout_width="@dimen/len_30"
+            android:layout_height="@dimen/len_30"
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/ic_qr_code"
+            android:tint="@color/white" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:paddingStart="@dimen/len_10"
+        android:paddingEnd="@dimen/len_10"
+        android:orientation="horizontal">
+
+        <net.fengyun.italker.common.widget.PortraitView
+            android:id="@+id/im_portrait"
+            android:layout_width="@dimen/len_35"
+            android:layout_height="@dimen/len_35"
+            android:layout_centerInParent="true"
+            android:contentDescription="@string/app_name" />
+
+        <TextView
+            android:id="@+id/txt_name"
+            android:layout_marginStart="@dimen/len_5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:textColor="@color/white"
+            android:textSize="@dimen/font_28" />
+    </LinearLayout>
+
+    <TextView
+        android:padding="@dimen/len_10"
+        android:id="@+id/txt_autograph"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="@dimen/len_10"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:textColor="@color/white"
+        android:textSize="@dimen/len_14" />
+
+</LinearLayout>

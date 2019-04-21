@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="month">
+        <item>一个月前</item>
+        <item>三个月前</item>
+        <item>半年前</item>
+    </string-array>
+    <string-array name="config">
+        <item>config</item>
+        <item>config2</item>
+        <item>config3</item>
+    </string-array>
+</resources>

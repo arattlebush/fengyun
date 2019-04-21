@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="label_gallery_select_max_size">至多选择%d张</string>
+
+
+    <string name="label_permission_network">网络访问</string>
+    <string name="label_permission_network_desc">用于即时通讯传输</string>
+    <string name="label_permission_read">读取文件</string>
+    <string name="label_permission_read_desc">用于设置头像与发送图片</string>
+    <string name="label_permission_write">写外部文件</string>
+    <string name="label_permission_write_desc">用于OSS日志存储</string>
+    <string name="label_permission_record_audio">麦克风</string>
+    <string name="label_permission_record_audio_desc">用于音频聊天</string>
+    <string name="label_permission_submit">授权</string>
+    <string name="label_permission_ok">授权成功！</string>
+
+
+    <string name="label_update_info_tips">仅差一步了</string>
+    <string name="label_login_welcome">登录</string>
+    <string name="label_submit">提交</string>
+    <string name="label_login">登录</string>
+    <string name="label_phone">电话</string>
+    <string name="label_register_welcome">欢迎您!</string>
+    <string name="label_register">注册</string>
+    <string name="label_password">密码</string>
+    <string name="label_portrait_tips">选择你的专属头像</string>
+    <string name="label_name">名字</string>
+    <string name="label_desc_tips">用一句话介绍自己</string>
+    <string name="label_sex_man">男</string>
+    <string name="label_sex_woman">女</string>
+    <string name="label_go_register">没有账户？去注册</string>
+    <string name="label_go_login">已有账户？去登录</string>
+
+
+    <string name="label_follows">Follows\n%s</string>
+    <string name="label_following">Following\n%s</string>
+
+    <string name="label_gallery_selected_size">已选%s张</string>
+
+    <string name="label_group_name">活动群组名称</string>
+    <string name="label_group_desc">活动描述</string>
+    <string name="label_group_member_select">群成员</string>
+
+    <string name="label_group_create_invalid">所有项都是必须，并且至少选择一名成员!</string>
+    <string name="label_group_member_add_invalid">没有新增加的成员!</string>
+    <string name="label_group_create_succeed">创建群成功!</string>
+
+    <string name="label_chat_edit_hint">Type something to send…</string>
+
+    <string name="toast_audio_play_error">播放失败！</string>
+    <string name="toast_audio_record_time_short_error">录音时间太短!</string>
+
+    <string name="toast_download_error">下载失败!</string>
+
+    <string name="label_query">查询</string>
+    <string name="label_instrument_control">仪表控制</string>
+
+    <string name="label_read_metering_data">读计量数据</string>
+    <string name="label_query_history_data">查询历史数据</string>
+    <string name="label_query_extend_history_data">查询扩展历史数据</string>
+    <string name="label_read_eeprom">读EEPROM</string>
+    <string name="label_read_5460">读5460</string>
+    <string name="label_illegal_record">违规记录</string>
+    <string name="label_reset_record">复位记录</string>
+    <string name="label_single_illegal_record">单路违规记录</string>
+    <string name="label_multiple_illegal_record">多路违规记录</string>
+    <string name="label_current_power_parameter_single">当前用电参数(单路)</string>
+    <string name="label_current_power_parameter_two">当前用电参数(二路)</string>
+    <string name="label_current_power_parameter_three">当前用电参数(三路)</string>
+    <string name="label_current_power_parameter_four">当前用电参数(四路)</string>
+
+    <string name="option_a_month_ago">一个月前</string>
+    <string name="option_config">config</string>
+    <string name="edit_four">4000</string>
+
+
+    <string name="label_metering_control">计量控制</string>
+    <string name="label_settlement_day">结算日</string>
+    <string name="label_meter_day">抄表日</string>
+    <string name="label_setting">设置</string>
+
+    <string name="label_synchronization_time">同步时间</string>
+
+    <string name="label_synchronization_water">同步用水/电量</string>
+
+    <string name="label_factory_enable_command">出厂启用后此命令无效</string>
+    <string name="label_open_the_valve">开阀</string>
+    <string name="label_off_the_valve">关阀</string>
+    <string name="label_query_version">查询版本</string>
+
+    <string name="label_extend_command">扩展命令</string>
+    <string name="label_charging_mode">计费方式</string>
+
+    <string name="label_internal_accounting">内部计费</string>
+
+    <string name="label_arrears_handling">欠费处理</string>
+    <string name="label_data_clear">数据清空</string>
+    <string name="label_factory_enable">出厂启用</string>
+    <string name="label_return_factory_model">退回工厂模式(两)</string>
+
+    <string name="label_system_calibration">系统校准(电表)</string>
+    <string name="label_zero_input">零输入</string>
+    <string name="label_full_load">满负载</string>
+    <string name="label_current_channel">电流通道</string>
+    <string name="label_voltage_channel">电压通道</string>
+    <string name="label_DC_voltage_bias">直流电压偏置</string>
+    <string name="label_AC_voltage_gain">交流电压增益</string>
+    <string name="label_AC_voltage_bias">交流电压偏置</string>
+
+    <string name="label_identification_chip">识别用芯片</string>
+
+    <string name="label_reference_current">基准电流</string>
+    <string name="label_basic_voltage">基本电压</string>
+    <string name="label_two_hundred_and_fifty">250</string>
+    <string name="label_ammeter_control">电表控制</string>
+    <string name="label_set_time">设置时间</string>
+    <string name="label_red_time">读取时间</string>
+    <string name="label_hardware_reset">硬件复位</string>
+    <string name="label_restore_power_supply">恢复供电</string>
+    <string name="label_access">进入导通</string>
+    <string name="label_exit">退出导通</string>
+    <string name="label_external_arrears">外部欠费</string>
+    <string name="label_external_debt">外部不欠</string>
+    <string name="label_pull_all_the_way">一路吸合</string>
+    <string name="label_two_way_pull_in">二路吸合</string>
+    <string name="label_three_way_pull_in">三路吸合</string>
+    <string name="label_four_way_pull_in">四路吸合</string>
+    <string name="label_all_the_way">一路断开</string>
+    <string name="label_two_way_disconnect">二路断开</string>
+    <string name="label_three_way_disconnect">三路断开</string>
+    <string name="label_four_way_disconnect">四路断开</string>
+
+
+    <string name="label_balance">余额(元)</string>
+    <string name="label_currency">云币(个)</string>
+    <string name="label_recharge">充值</string>
+    <string name="label_withdrawals">提现</string>
+    <string name="label_charging_money">充云币</string>
+    <string name="label_add_bank">添加银行卡</string>
+    <string name="label_apply_bank">申请信用卡</string>
+
+    <string name="label_time">分时</string>
+    <string name="label_full_mark">5分</string>
+    <string name="label_fifteen">15分</string>
+    <string name="label_thirty">30分</string>
+    <string name="label_hour">60分</string>
+    <string name="label_day">日线</string>
+    <string name="label_week">周线</string>
+    <string name="label_month">月线</string>
+
+    <string name="label_transaction_record">交易记录</string>
+    <string name="label_password_manager">密码管理</string>
+    <string name="label_cancel">取消</string>
+
+    <string name="label_album">相册</string>
+    <string name="label_photograph">拍照</string>
+    <string name="label_id_front">身份证正面</string>
+    <string name="label_id_opposite">身份证反面</string>
+    <string name="label_hand_photo">手持身份证照片</string>
+
+    <string name="label_affirm">确定</string>
+    <string name="label_release">发送</string>
+
+    <string name="label_release_success">发送成功</string>
+    <string name="label_comment_success">评论成功</string>
+
+    <string name="label_thoughts_moment">这一刻的想法...</string>
+
+    <string name="label_fabulous">赞</string>
+    <string name="label_comment">评论</string>
+    <string name="label_add">ADD</string>
+
+    <string name="label_big_picture">查看大图片</string>
+    <string name="label_pic_intent_key">PIC_INTENT_KEY</string>
+
+</resources>

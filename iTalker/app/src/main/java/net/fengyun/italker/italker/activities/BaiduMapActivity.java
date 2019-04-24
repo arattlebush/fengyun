@@ -3,6 +3,12 @@ package net.fengyun.italker.italker.activities;
 
 
 import net.fengyun.italker.italker.R;
+import net.fengyun.italker.italker.activities.weather.db.City;
+import net.fengyun.italker.italker.activities.weather.db.County;
+import net.fengyun.italker.italker.activities.weather.db.Province;
+import net.fengyun.italker.italker.activities.weather.util.HttpUtil;
+import net.fengyun.italker.italker.activities.weather.util.Utility;
+
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -28,8 +34,13 @@ import com.baidu.mapapi.map.MapView;
 import com.baidu.mapapi.map.MyLocationData;
 import com.baidu.mapapi.model.LatLng;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.Response;
 
 public class BaiduMapActivity extends AppCompatActivity {
 
@@ -42,6 +53,12 @@ public class BaiduMapActivity extends AppCompatActivity {
     private BaiduMap baiduMap;
 
     private boolean isFirstLocate = true;
+
+    private String selectedProvince;
+
+    private String selectedCity;
+
+    private String selectedCounty;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -167,6 +184,24 @@ public class BaiduMapActivity extends AppCompatActivity {
             } else if (location.getLocType() == BDLocation.TypeNetWorkLocation) {
                 currentPosition.append("网络");
             }
+            selectedProvince=location.getProvince();
+            selectedCity=location.getCity();
+            selectedCounty=location.getDistrict();
+            //String address9 = "http://guolin.tech/api/china/" + provinceCode + "/" + cityCode;
+            String address = "http://guolin.tech/api/china/";
+            HttpUtil.sendOkHttpRequest(address, new Callback() {
+                @Override
+                public void onFailure(Call call, IOException e) {
+
+                }
+
+                @Override
+                public void onResponse(Call call, Response response) throws IOException {
+
+                }
+            });
+
+
             positionText.setText(currentPosition);
             //Toast.makeText(BaiduMapActivity.this, currentPosition, Toast.LENGTH_LONG).show();
             if (location.getLocType() == BDLocation.TypeGpsLocation
@@ -176,4 +211,38 @@ public class BaiduMapActivity extends AppCompatActivity {
         }
 
     }
+
+//    /**
+//     * 根据传入的地址和类型从服务器上查询省市县数据。
+//     */
+//    private void queryFromServer(String address, final String type) {
+//
+//        HttpUtil.sendOkHttpRequest(address, new Callback() {
+//            @Override
+//            public void onResponse(Call call, Response response) throws IOException {
+//                String responseText = response.body().string();
+//                boolean result = false;
+//                if ("province".equals(type)) {
+//                    result = Utility.handleProvinceResponse(responseText);
+//                } else if ("city".equals(type)) {
+//                    result = Utility.handleCityResponse(responseText, selectedProvince.getId());
+//                } else if ("county".equals(type)) {
+//                    result = Utility.handleCountyResponse(responseText, selectedCity.getId());
+//                }
+//
+//            }
+//
+//            @Override
+//            public void onFailure(Call call, IOException e) {
+//                // 通过runOnUiThread()方法回到主线程处理逻辑
+//                getActivity().runOnUiThread(new Runnable() {
+//                    @Override
+//                    public void run() {
+//                        closeProgressDialog();
+//                        Toast.makeText(getContext(), "加载失败", Toast.LENGTH_SHORT).show();
+//                    }
+//                });
+//            }
+//        });
+//    }
 }

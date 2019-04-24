@@ -15,6 +15,9 @@ import com.bumptech.glide.Glide;
 
 import net.fengyun.italker.italker.R;
 import net.fengyun.italker.italker.activities.BaiduMapActivity;
+import net.fengyun.italker.italker.activities.POIActivity;
+import net.fengyun.italker.italker.activities.WeatherActivity;
+import net.fengyun.italker.italker.activities.weather.gson.Weather;
 
 import java.util.List;
 import java.util.Objects;
@@ -58,7 +61,14 @@ public class ClassAdapter extends RecyclerView.Adapter<ClassAdapter.ViewHolder>{
                 int position = holder.getAdapterPosition();
                 Class clss = mClassList.get(position);
                 if(Objects.equals(clss.getName(), "天气")){
+                    Intent intent = new Intent(mContext, WeatherActivity.class);
+                    intent.putExtra("weather_id","CN101190401");
+                    mContext.startActivity(intent);
+                }else if(Objects.equals(clss.getName(), "美食")){
                     Intent intent = new Intent(mContext, BaiduMapActivity.class);
+                    mContext.startActivity(intent);
+                }else{
+                    Intent intent = new Intent(mContext, POIActivity.class);
                     mContext.startActivity(intent);
                 }
 

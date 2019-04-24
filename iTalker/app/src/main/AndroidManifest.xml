@@ -29,9 +29,6 @@
     <!-- 保持CPU 运转，屏幕和键盘灯有可能是关闭的,用于文件上传和下载 -->
     <uses-permission android:name="android.permission.WAKE_LOCK" />
 
-
-
-
     <!--
      &lt;!&ndash; 蓝牙权限 &ndash;&gt;
     <uses-permission android:name="android.permission.BLUETOOTH" />
@@ -48,8 +45,7 @@
         <!-- 百度地图 -->
         <meta-data
             android:name="com.baidu.lbsapi.API_KEY"
-            android:value="ajCxhBcR9wGNrd7AXDcQPuzUKcfAY45I"
-            />
+            android:value="ajCxhBcR9wGNrd7AXDcQPuzUKcfAY45I" />
 
         <!-- 百度地图 间隔定位必须配置此service否则功能无效 -->
         <service
@@ -163,15 +159,14 @@
             android:name=".activities.WebActivity"
             android:label="@string/title_activity_web"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme"/>
+            android:theme="@style/AppTheme" />
         <activity
             android:name=".activities.BaiduMapActivity"
             android:label="@string/title_activity_baidu"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.TransStatusBar"
-            />
-
-
+            android:theme="@style/AppTheme.TransStatusBar" />
+        <activity android:name=".activities.WeatherActivity" />
+        <activity android:name=".activities.POIActivity"></activity>
     </application>
 
 </manifest>

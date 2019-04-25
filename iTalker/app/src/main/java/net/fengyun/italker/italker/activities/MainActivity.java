@@ -2,6 +2,8 @@ package net.fengyun.italker.italker.activities;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -11,6 +13,8 @@ import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.view.animation.AnticipateOvershootInterpolator;
 import android.widget.TextView;
 
@@ -94,6 +98,9 @@ public class MainActivity extends Activity implements
 
     @Override
     protected void initWeight() {
+
+
+
         super.initWeight();
         //初始化底部辅助工具类
         mNavHelper = new NavHelper<>(this, R.id.lay_container, getSupportFragmentManager(), this);
@@ -114,6 +121,8 @@ public class MainActivity extends Activity implements
                     }
                 });
         initNav();
+
+        BottomNavigationViewHelper.disableShiftMode(mNavigation);
 
     }
 

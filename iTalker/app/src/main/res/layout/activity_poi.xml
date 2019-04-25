@@ -18,7 +18,13 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:hint="搜索的城市"
-            android:textColorHint="@color/black" />
+
+            android:textCursorDrawable="@drawable/ic_cursor"
+            android:background="@null"
+            android:textColor="@color/textPrimary"
+            android:textColorHint="@color/textSecond"
+
+            />
 
         <EditText
             android:id="@+id/et_key"

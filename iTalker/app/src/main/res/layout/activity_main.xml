@@ -23,7 +23,7 @@
             <android.support.design.widget.AppBarLayout
                 android:id="@+id/appBar"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/actionBarWithStatusBarSize"
+                android:layout_height="48dp"
                 android:elevation="@dimen/len_2"
                 android:outlineProvider="bounds"
                 tools:targetApi="lollipop">
@@ -31,7 +31,7 @@
                 <FrameLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginTop="@dimen/statusBarSize"
+                    android:layout_marginTop="0dp"
                     android:paddingLeft="@dimen/len_4"
                     android:paddingRight="@dimen/len_4">
 

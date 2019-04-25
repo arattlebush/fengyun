@@ -163,9 +163,9 @@
         <activity
             android:name=".activities.BaiduMapActivity"
             android:label="@string/title_activity_baidu"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.TransStatusBar" />
-        <activity android:name=".activities.WeatherActivity" />
+            android:screenOrientation="portrait" />
+        <activity android:name=".activities.WeatherActivity"
+            android:theme="@style/AppTheme.TransStatusBar"/>
         <activity android:name=".activities.POIActivity" />
         <activity android:name=".activities.TestActivity"></activity>
     </application>

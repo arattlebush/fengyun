@@ -19,12 +19,11 @@
         app:rollviewpager_hint_paddingBottom="8dp"
         app:layout_scrollFlags="scroll|enterAlways|snap"
         />
+
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recycle_view"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-    </android.support.v7.widget.RecyclerView>
+        android:layout_height="wrap_content" />
 
 
     <ListView

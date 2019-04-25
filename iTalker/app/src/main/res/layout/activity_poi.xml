@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="push.italker.qiujuer.net.baidutest.POIActivity">
+    tools:context=".activities.POIActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -17,7 +17,8 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:hint="搜索的城市" />
+            android:hint="搜索的城市"
+            android:textColorHint="@color/black" />
 
         <EditText
             android:id="@+id/et_key"
@@ -25,7 +26,8 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_weight="1"
-            android:hint="搜索的关键字" />
+            android:hint="搜索的关键字"
+            android:textColorHint="@color/black"/>
 
         <Button
             android:layout_width="wrap_content"
@@ -47,7 +49,8 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_weight="1"
-            android:hint="搜索的关键字" />
+            android:hint="搜索的关键字"
+            android:textColorHint="@color/black" />
 
         <Button
             android:layout_width="wrap_content"
@@ -76,7 +79,8 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_weight="1"
-            android:hint="输入公交或地铁路线名称" />
+            android:hint="输入公交或地铁路线名称"
+            android:textColorHint="@color/black"/>
 
         <Button
             android:layout_width="wrap_content"
@@ -98,7 +102,8 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_weight="1"
-            android:hint="输入起点位置" />
+            android:hint="输入起点位置"
+            android:textColorHint="@color/black"/>
 
         <Button
             android:layout_width="wrap_content"

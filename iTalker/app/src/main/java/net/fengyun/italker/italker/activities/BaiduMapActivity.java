@@ -34,6 +34,8 @@ import com.baidu.mapapi.map.MapView;
 import com.baidu.mapapi.map.MyLocationData;
 import com.baidu.mapapi.model.LatLng;
 
+import org.litepal.crud.DataSupport;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -54,12 +56,26 @@ public class BaiduMapActivity extends AppCompatActivity {
 
     private boolean isFirstLocate = true;
 
-    private String selectedProvince;
+    /**
+     * 省列表
+     */
+    private List<Province> provinceList;
 
-    private String selectedCity;
+    /**
+     * 市列表
+     */
+    private List<City> cityList;
 
-    private String selectedCounty;
+    /**
+     * 县列表
+     */
+    private List<County> countyList;
 
+    private String Province;
+    private String City;
+    private String County;
+    int Proid=0;
+    int Cityid=0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -68,6 +84,7 @@ public class BaiduMapActivity extends AppCompatActivity {
         SDKInitializer.initialize(getApplicationContext());
         setContentView(R.layout.activity_baidu_map);
         mapView = (MapView) findViewById(R.id.bmapView);
+        Button button=(Button) findViewById(R.id.bu);
         baiduMap = mapView.getMap();
         baiduMap.setMyLocationEnabled(true);
         positionText = (TextView) findViewById(R.id.position_text_view);
@@ -88,6 +105,36 @@ public class BaiduMapActivity extends AppCompatActivity {
             requestLocation();
         }
 
+
+
+
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Proid=queryProvinces(Province);
+                Log.d("TestActivity", String.valueOf(Proid));
+                if(0 != Proid){
+                    Cityid=queryCities(City,Proid);
+                    Log.d("TestActivity", String.valueOf(Cityid));
+                    if(Cityid!=0){
+                        String weatherId = queryCounties(County, Cityid, Proid);
+                        Log.d("TestActivity", String.valueOf(weatherId));
+                        if(weatherId!=null){
+                            //Toast.makeText(BaiduMapActivity.this, weatherId, Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent(BaiduMapActivity.this, WeatherActivity.class);
+                            intent.putExtra("weather_id",weatherId);
+                            startActivity(intent);
+                        }else{
+                            finish();
+                        }
+                    }else{
+
+                    }
+                }else{
+
+                }
+            }
+        });
 
 
     }
@@ -184,65 +231,146 @@ public class BaiduMapActivity extends AppCompatActivity {
             } else if (location.getLocType() == BDLocation.TypeNetWorkLocation) {
                 currentPosition.append("网络");
             }
-            selectedProvince=location.getProvince();
-            selectedCity=location.getCity();
-            selectedCounty=location.getDistrict();
-            //String address9 = "http://guolin.tech/api/china/" + provinceCode + "/" + cityCode;
-            String address = "http://guolin.tech/api/china/";
-            HttpUtil.sendOkHttpRequest(address, new Callback() {
-                @Override
-                public void onFailure(Call call, IOException e) {
-
-                }
-
-                @Override
-                public void onResponse(Call call, Response response) throws IOException {
-
-                }
-            });
-
-
+            Province=location.getProvince();
+            City=location.getCity();
+            County=location.getDistrict();
+            Province=Sub(Province);
+            City=Sub(City);
             positionText.setText(currentPosition);
             //Toast.makeText(BaiduMapActivity.this, currentPosition, Toast.LENGTH_LONG).show();
             if (location.getLocType() == BDLocation.TypeGpsLocation
                     || location.getLocType() == BDLocation.TypeNetWorkLocation) {
-                navigateTo(location);
+                //navigateTo(location);
             }
         }
 
     }
 
-//    /**
-//     * 根据传入的地址和类型从服务器上查询省市县数据。
-//     */
-//    private void queryFromServer(String address, final String type) {
-//
-//        HttpUtil.sendOkHttpRequest(address, new Callback() {
-//            @Override
-//            public void onResponse(Call call, Response response) throws IOException {
-//                String responseText = response.body().string();
-//                boolean result = false;
-//                if ("province".equals(type)) {
-//                    result = Utility.handleProvinceResponse(responseText);
-//                } else if ("city".equals(type)) {
-//                    result = Utility.handleCityResponse(responseText, selectedProvince.getId());
-//                } else if ("county".equals(type)) {
-//                    result = Utility.handleCountyResponse(responseText, selectedCity.getId());
-//                }
-//
-//            }
-//
-//            @Override
-//            public void onFailure(Call call, IOException e) {
-//                // 通过runOnUiThread()方法回到主线程处理逻辑
-//                getActivity().runOnUiThread(new Runnable() {
-//                    @Override
-//                    public void run() {
-//                        closeProgressDialog();
-//                        Toast.makeText(getContext(), "加载失败", Toast.LENGTH_SHORT).show();
-//                    }
-//                });
-//            }
-//        });
-//    }
+    private String Sub(String string){
+        string=string.substring(0,string.length()-1);
+        return string;
+    }
+
+    /**
+     * 查询全国所有的省，优先从数据库查询，如果没有查询到再去服务器上查询。
+     */
+    private int queryProvinces(String Province) {
+
+        provinceList = DataSupport.findAll(Province.class);
+        if (provinceList.size() > 0) {
+
+            for (Province province : provinceList) {
+                if(Province.equals(province.getProvinceName())){
+                    return province.getId();
+                }
+            }
+
+            //currentLevel = LEVEL_PROVINCE;
+        } else {
+            String address = "http://guolin.tech/api/china";
+            queryFromServer(address, "province");
+        }
+
+        return 0;
+    }
+
+
+    /**
+     * 查询选中省内所有的市，优先从数据库查询，如果没有查询到再去服务器上查询。
+     */
+    private int queryCities(String City, int Proid) {
+
+        cityList = DataSupport.where("provinceid = ?", String.valueOf(Proid)).find(City.class);
+        if (cityList.size() > 0) {
+            for (City city : cityList) {
+                if(City.equals( city.getCityName())){
+                    return city.getId();
+                }
+            }
+        } else {
+            List<Province> pro=DataSupport.where("id = ?",String.valueOf(Proid)).find(Province.class);
+            int provinceCode =pro.get(0).getProvinceCode();
+            String address = "http://guolin.tech/api/china/" + provinceCode;
+            queryFromServer(address, "city");
+        }
+        return 0;
+    }
+
+
+    /**
+     * 查询选中市内所有的县，优先从数据库查询，如果没有查询到再去服务器上查询。
+     */
+    private String queryCounties(String County, int cityid, int Proid) {
+
+        countyList = DataSupport.where("cityid = ?", String.valueOf(cityid)).find(County.class);
+        if (countyList.size() > 0) {
+
+            for (County county : countyList) {
+                if(County.equals(county.getCountyName())){
+                    return county.getWeatherId();
+                }
+            }
+
+        } else {
+            List<Province> pro=DataSupport.where("id = ?",String.valueOf(Proid)).find(Province.class);
+            int provinceCode =pro.get(0).getProvinceCode();
+
+            List<City> city =DataSupport.where("id = ?",String.valueOf(cityid)).find(City.class);
+            int cityCode =city.get(0).getCityCode();
+
+            String address = "http://guolin.tech/api/china/" + provinceCode + "/" + cityCode;
+            queryFromServer(address, "county");
+        }
+        return null;
+    }
+
+
+
+
+
+    /**
+     * 根据传入的地址和类型从服务器上查询省市县数据。
+     */
+    private void queryFromServer(String address, final String type) {
+        //showProgressDialog();
+        HttpUtil.sendOkHttpRequest(address, new Callback() {
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                String responseText = response.body().string();
+                boolean result = false;
+                if ("province".equals(type)) {
+                    result = Utility.handleProvinceResponse(responseText);
+                } else if ("city".equals(type)) {
+                    result = Utility.handleCityResponse(responseText, Proid);
+                } else if ("county".equals(type)) {
+                    result = Utility.handleCountyResponse(responseText, Cityid);
+                }
+
+
+                if (result) {
+                    if ("province".equals(type)) {
+                        queryProvinces(Province);
+                    } else if ("city".equals(type)) {
+                        queryCities(City,Proid);
+                    } else if ("county".equals(type)) {
+                        queryCounties(County,Cityid,Proid);
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Call call, IOException e) {
+                // 通过runOnUiThread()方法回到主线程处理逻辑
+                BaiduMapActivity.this.runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        //closeProgressDialog();
+                        Toast.makeText(BaiduMapActivity.this, "加载失败", Toast.LENGTH_SHORT).show();
+                    }
+                });
+            }
+        });
+    }
+
+
 }

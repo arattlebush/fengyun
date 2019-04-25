@@ -7,6 +7,9 @@ import com.igexin.sdk.PushManager;
 import net.fengyun.italker.common.app.Application;
 import net.fengyun.italker.italker.activities.AccountActivity;
 
+import org.litepal.LitePalApplication;
+import org.litepal.util.Const;
+
 import fengyun.android.com.factory.Factory;
 
 /**
@@ -23,6 +26,8 @@ public class App extends Application{
         Factory.setup();
         //个推推送进行初始化
         PushManager.getInstance().initialize(this);
+        LitePalApplication.initialize(this);
+
 
     }
 

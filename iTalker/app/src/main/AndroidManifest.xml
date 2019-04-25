@@ -166,7 +166,8 @@
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.TransStatusBar" />
         <activity android:name=".activities.WeatherActivity" />
-        <activity android:name=".activities.POIActivity"></activity>
+        <activity android:name=".activities.POIActivity" />
+        <activity android:name=".activities.TestActivity"></activity>
     </application>
 
 </manifest>

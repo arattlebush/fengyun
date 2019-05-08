@@ -136,6 +136,13 @@ public class MainActivity extends Activity implements
         username.setText(Account.getUser().getName());
         card.setText("签到");
         portrait.setup(Glide.with(this), Account.getUser().getPortrait());
+        portrait.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                PersonalActivity.show(MainActivity.this,Account.getUserId());
+            }
+        });
+
         navView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -184,7 +191,7 @@ public class MainActivity extends Activity implements
     @OnClick(R.id.im_portrait)
     void onPortrait() {
         mDrawerLayout.openDrawer(Gravity.START);
-//        PersonalActivity.show(this,Account.getUserId());
+        //PersonalActivity.show(this,Account.getUserId());
     }
 
 

@@ -65,11 +65,11 @@
                 <net.qiujuer.genius.ui.widget.EditText
                     android:id="@+id/edit_desc"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="200dp"
                     android:hint="@string/label_group_desc"
                     android:inputType="textMultiLine"
                     android:maxLength="64"
-                    android:maxLines="2"
+                    android:maxLines="15"
                     android:paddingBottom="@dimen/len_2"
                     android:paddingTop="@dimen/len_14"
                     android:textColor="@color/white"

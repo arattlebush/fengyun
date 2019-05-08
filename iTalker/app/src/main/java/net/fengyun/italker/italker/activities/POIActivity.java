@@ -49,6 +49,7 @@ import net.fengyun.italker.italker.activities.POI.my.*;
 
 
 
+
 public class POIActivity extends AppCompatActivity {
 
 
@@ -64,11 +65,22 @@ public class POIActivity extends AppCompatActivity {
     BusLineSearch busLineSearch;//公交检索对象
     RoutePlanSearch routePlanSearch;//路线规划
 
+
+    private double Latitude;
+    private double Longitude;
+    private String leix;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_poi);
+        Latitude=Double.valueOf(getIntent().getStringExtra("Latitude"));
+        Longitude=Double.parseDouble(getIntent().getStringExtra("Longitude"));
+        leix=getIntent().getStringExtra("leix");
+        //Toast.makeText(POIActivity.this,String.valueOf(Latitude), Toast.LENGTH_SHORT).show();
+        //Log.d("POIActivity", String.valueOf(Latitude));
         initBaiduMap();
+
     }
 
     private void initBaiduMap() {
@@ -78,16 +90,18 @@ public class POIActivity extends AppCompatActivity {
         et_around = (EditText) findViewById(R.id.et_around);
         et_line = (EditText) findViewById(R.id.et_line);
         et_start = (EditText) findViewById(R.id.et_start);
+        et_around.setText(leix);
         //获取地图控件引用
         mMapView = ((MapFragment) getFragmentManager().findFragmentById(R.id.fragment)).getMapView();
         //百度地图控制对象
         mBaiduMap = mMapView.getMap();
         //普通地图
         mBaiduMap.setMapType(BaiduMap.MAP_TYPE_NORMAL);
+        mBaiduMap.setMyLocationEnabled(true);
         //设置默认显示的位置
         //定义Maker坐标点,深圳大学经度和纬度113.943062,22.54069
         //设置的时候经纬度是反的 纬度在前，经度在后
-        LatLng latlng = new LatLng(22.54069, 113.943062);
+        LatLng latlng = new LatLng(Latitude, Longitude);
         //1-20级 20级室内地图
         MapStatusUpdate mapStatusUpdate =
                 MapStatusUpdateFactory.newLatLngZoom(latlng, 18);
@@ -298,9 +312,9 @@ public class POIActivity extends AppCompatActivity {
     //POI搜索，范围检索,
     public void selectAround(View view) {
 
-        //定义Maker坐标点,深圳大学经度和纬度113.943062,22.54069
-        double latitude = 22.54069;
-        double longitude = 113.943062;
+        //定义Maker坐标点
+        double latitude = Latitude;
+        double longitude = Longitude;
         //获得Key
         String key = et_around.getText().toString();
         //发起周边检索
@@ -317,9 +331,9 @@ public class POIActivity extends AppCompatActivity {
 
     //POI搜索，周边检索,
     public void selectPoint(View view) {
-        //定义Maker坐标点,深圳大学经度和纬度113.943062,22.54069
+        //定义Maker坐标点,
         //设置的时候经纬度是反的 纬度在前，经度在后
-        LatLng point = new LatLng(22.54069, 113.943062);
+        LatLng point = new LatLng(Latitude, Longitude);
         //获得Key
         String key = et_around.getText().toString();
         //周边检索
@@ -383,5 +397,6 @@ public class POIActivity extends AppCompatActivity {
         super.onDestroy();
         poiSearch.destroy();
         busLineSearch.destroy();
+        mBaiduMap.setMyLocationEnabled(false);
     }
 }

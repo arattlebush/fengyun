@@ -1,33 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".activities.BaiduMapActivity">
+    tools:context="net.fengyun.italker.italker.activities.BaiduMap2Activity">
+
+
 
     <TextView
-        android:id="@+id/position_text_view"
+        android:id="@+id/position_text_view2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/black"
         />
 
     <com.baidu.mapapi.map.MapView
-        android:id="@+id/bmapView"
+        android:id="@+id/bmapView2"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:clickable="true"
         android:visibility="gone"/>
 
     <Button
-        android:id="@+id/bu"
+        android:id="@+id/bu2"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:hint="定位成功，点击继续"
-        android:textColorHint="@color/white"/>
-
-
-
-
+        android:textColorHint="@color/white"
+        />
 </LinearLayout>

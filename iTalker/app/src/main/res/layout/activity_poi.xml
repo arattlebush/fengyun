@@ -10,7 +10,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:visibility="gone">
 
         <EditText
             android:id="@+id/et_city"
@@ -55,20 +56,22 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_weight="1"
-            android:hint="搜索的关键字"
+
+            android:textColor="@color/textPrimary"
             android:textColorHint="@color/black" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="selectAround"
-            android:text="深大范围搜索" />
+            android:text="范围搜索"
+            android:visibility="gone"/>
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="selectPoint"
-            android:text="深大为圆心的周边检索" />
+            android:text="所在城市的周边检索" />
 
     </LinearLayout>
 
@@ -76,7 +79,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:visibility="gone">
 
 
         <EditText
@@ -99,7 +103,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:visibility="gone">
 
 
         <EditText

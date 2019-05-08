@@ -1,10 +1,15 @@
 package net.fengyun.italker.italker.frags.main;
 
 
+import android.widget.ImageView;
+import android.widget.TextView;
+
 import net.fengyun.italker.common.app.Fragment;
+import net.fengyun.italker.common.widget.PortraitView;
 import net.fengyun.italker.italker.R;
 import net.fengyun.italker.italker.activities.FriendCircleActivity;
 
+import butterknife.BindView;
 import butterknife.OnClick;
 
 /**
@@ -12,6 +17,8 @@ import butterknife.OnClick;
  * @author fengyun
  */
 public class DynamicFragment extends Fragment {
+
+
 
 
     public DynamicFragment() {

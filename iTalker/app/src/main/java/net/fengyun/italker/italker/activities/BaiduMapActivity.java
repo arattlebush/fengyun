@@ -76,6 +76,9 @@ public class BaiduMapActivity extends AppCompatActivity {
     private String County;
     int Proid=0;
     int Cityid=0;
+
+    private double Latitude;
+    private double Longitude;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -236,6 +239,8 @@ public class BaiduMapActivity extends AppCompatActivity {
             County=location.getDistrict();
             Province=Sub(Province);
             City=Sub(City);
+            Latitude=location.getLatitude();
+            Longitude=location.getLongitude();
             positionText.setText(currentPosition);
             //Toast.makeText(BaiduMapActivity.this, currentPosition, Toast.LENGTH_LONG).show();
             if (location.getLocType() == BDLocation.TypeGpsLocation

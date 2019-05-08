@@ -18,7 +18,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:layout_centerHorizontal="true">
 
             <ImageView
                 android:id="@+id/dynamic"
@@ -44,7 +45,8 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="@dimen/len_5"
             android:gravity="center"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:visibility="gone">
 
             <ImageView
                 android:id="@+id/interest_tribe"
@@ -68,7 +70,8 @@
             android:layout_alignParentRight="true"
             android:layout_marginTop="@dimen/len_5"
             android:gravity="center"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:visibility="gone">
 
             <ImageView
                 android:id="@+id/nearby"

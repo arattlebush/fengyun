@@ -38,7 +38,7 @@
     <string name="label_gallery_selected_size">已选%s张</string>
 
     <string name="label_group_name">活动群组名称</string>
-    <string name="label_group_desc">活动描述</string>
+    <string name="label_group_desc">活动描述(时间、地点、主题、介绍)</string>
     <string name="label_group_member_select">群成员</string>
 
     <string name="label_group_create_invalid">所有项都是必须，并且至少选择一名成员!</string>

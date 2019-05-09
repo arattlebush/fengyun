@@ -169,7 +169,11 @@
             android:theme="@style/AppTheme.TransStatusBar" />
         <activity android:name=".activities.POIActivity" />
         <activity android:name=".activities.TestActivity" />
-        <activity android:name=".activities.BaiduMap2Activity"></activity>
+        <activity android:name=".activities.BaiduMap2Activity" />
+        <activity
+            android:name=".activities.POI2Activity"
+            android:label="@string/title_activity_poi2"
+            android:theme="@style/AppTheme"></activity>
     </application>
 
 </manifest>

@@ -16,4 +16,5 @@
     <string name="title_activity_group_create">GroupCreateActivity</string>
     <string name="title_activity_web">查看内容</string>
     <string name="title_activity_baidu">定位</string>
+    <string name="title_activity_poi2">POI2Activity</string>
 </resources>

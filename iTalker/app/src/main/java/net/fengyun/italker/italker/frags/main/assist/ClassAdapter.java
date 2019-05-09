@@ -16,6 +16,7 @@ import com.bumptech.glide.Glide;
 import net.fengyun.italker.italker.R;
 import net.fengyun.italker.italker.activities.BaiduMap2Activity;
 import net.fengyun.italker.italker.activities.BaiduMapActivity;
+import net.fengyun.italker.italker.activities.POI2Activity;
 import net.fengyun.italker.italker.activities.POIActivity;
 import net.fengyun.italker.italker.activities.WeatherActivity;
 import net.fengyun.italker.italker.activities.weather.gson.Weather;
@@ -74,8 +75,10 @@ public class ClassAdapter extends RecyclerView.Adapter<ClassAdapter.ViewHolder>{
                     intent.putExtra("leix","酒店");
                     mContext.startActivity(intent);
                 }else{
-                    Intent intent = new Intent(mContext, BaiduMap2Activity.class);
-                    intent.putExtra("leix","医院");
+                    Intent intent = new Intent(mContext, POI2Activity.class);
+                    //intent.putExtra("leix","医院");
+                    intent.putExtra("Latitude","37.797485");
+                    intent.putExtra("Longitude","112.590877");
                     mContext.startActivity(intent);
                 }
 

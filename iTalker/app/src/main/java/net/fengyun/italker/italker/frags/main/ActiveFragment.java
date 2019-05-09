@@ -99,7 +99,7 @@ public class ActiveFragment extends Fragment {
 
 
 
-    private Class[]classes={new Class("天气",R.drawable.homepage_icon_light_movie_b),new Class("美食",R.drawable.homepage_icon_light_food_b),new Class("酒店",R.drawable.homepage_icon_light_hotel_b),new Class("医院",R.drawable.homepage_icon_light_amusement_b)};
+    private Class[]classes={new Class("天气",R.drawable.homepage_icon_light_movie_b),new Class("美食",R.drawable.homepage_icon_light_food_b),new Class("酒店",R.drawable.homepage_icon_light_hotel_b),new Class("其他",R.drawable.homepage_icon_light_amusement_b)};
     private List<Class> classList=new ArrayList<>();
     private ClassAdapter adapter;
 

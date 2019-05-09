@@ -19,6 +19,8 @@ public class WebActivity extends Activity {
         setContentView(R.layout.activity_web);
         WebView webView=(WebView)findViewById(R.id.webView);
         webView.getSettings().setJavaScriptEnabled(true);
+        webView.getSettings().setDefaultTextEncodingName("utf-8");
+
         webView.setWebViewClient(new WebViewClient());
         Intent intent=getIntent();
         String data=intent.getStringExtra("url");

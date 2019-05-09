@@ -109,7 +109,7 @@ implements GroupsContract.View{
         @BindView(R.id.txt_name)
         TextView mName;
 
-        @BindView(R.id.txt_desc)
+        @BindView(R.id.txt_desc1)
         TextView mDesc;
 
         @BindView(R.id.txt_member)
@@ -123,7 +123,7 @@ implements GroupsContract.View{
         protected void onBind(Group group) {
             mPortraitView.setup(Glide.with(GroupFragment.this),group.getPicture());
             mName.setText(group.getName());
-            mDesc.setText(group.getDesc());
+            mDesc.setText(group.getDesc());//
             if(group.holder!=null && group.holder instanceof String){
                 mMember.setText((String)group.holder);
             }else{

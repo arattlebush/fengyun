@@ -125,7 +125,7 @@ public class GroupCreateActivity extends PresenterToolbarActivity<GroupCreateCon
     private void onCreateClick() {
         hideSoftKeyboard();
         String name = mName.getText().toString().trim();
-        String desc = mName.getText().toString().trim();
+        String desc = mDesc.getText().toString().trim();
         mPresenter.create(name, desc, mPortraitPath);
     }
 

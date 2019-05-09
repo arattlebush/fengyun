@@ -34,7 +34,7 @@
         tools:text="Love" />
 
     <TextView
-        android:id="@+id/txt_desc"
+        android:id="@+id/txt_desc1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/len_16"

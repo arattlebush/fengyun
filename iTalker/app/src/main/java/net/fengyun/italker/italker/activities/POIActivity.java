@@ -1,5 +1,6 @@
 package net.fengyun.italker.italker.activities;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
@@ -237,9 +238,8 @@ public class POIActivity extends AppCompatActivity {
                 Toast.makeText(getApplication(), "抱歉，未找到结果",
                         Toast.LENGTH_SHORT).show();
             } else {// 正常返回结果的时候，此处可以获得很多相关信息
-                Toast.makeText(getApplication(), poiDetailResult.getName() + ": "
-                                + poiDetailResult.getAddress(),
-                        Toast.LENGTH_LONG).show();
+                //Toast.makeText(getApplication(), poiDetailResult.getName() + ": " + poiDetailResult.getAddress(), Toast.LENGTH_LONG).show();
+                StartWeb(poiDetailResult.getDetailUrl());
             }
         }
 
@@ -398,5 +398,11 @@ public class POIActivity extends AppCompatActivity {
         poiSearch.destroy();
         busLineSearch.destroy();
         mBaiduMap.setMyLocationEnabled(false);
+    }
+    private void StartWeb(String data){
+        Intent intent=new Intent(POIActivity.this, WebActivity.class);
+        //intent.putExtra("title", "666");
+        intent.putExtra("url",data);
+        startActivity(intent);
     }
 }

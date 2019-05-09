@@ -29,7 +29,7 @@ public interface GroupCreateContract {
         //用户信息
         public Author author;
         //是否选中
-        public boolean isSelect;
+        public boolean isSelected;
 
     }
 }

@@ -227,7 +227,7 @@ public class FriendCircleActivity extends PresenterToolbarActivity<FriendCircleC
             mComment.setText(String.valueOf(friendCircleCard.getCommentSize()));
             Drawable drawable = getResources().getDrawable(friendCircleCard.isFabulous()?R.drawable.ic_select_fabulou:R.drawable.ic_fabulous);
             mImageFabulous.setImageDrawable(drawable);
-            String[] imgs = friendCircleCard.getImgs().split(",");
+            final String[] imgs = friendCircleCard.getImgs().split(",");
             if (imgs.length == 1) {
                 mRecyclerView.setLayoutManager(new GridLayoutManager(FriendCircleActivity.this, 1));
             } else if (imgs.length == 2 || imgs.length == 4) {
@@ -235,12 +235,13 @@ public class FriendCircleActivity extends PresenterToolbarActivity<FriendCircleC
             } else {
                 mRecyclerView.setLayoutManager(new GridLayoutManager(FriendCircleActivity.this, 3));
             }
-            mRecyclerView.setAdapter(new RecyclerAdapter<String>(
-                    CollectionUtil.toArrayList(imgs)
-                    , new RecyclerAdapter.AdapterListenerImpl() {
+            mRecyclerView.setAdapter(new RecyclerAdapter<String>(CollectionUtil.toArrayList(imgs), new RecyclerAdapter.AdapterListenerImpl() {
                 @Override
                 public void onItemClick(RecyclerAdapter.ViewHolder holder, Object o) {
-                    Application.showToast("点击了");
+                    //Application.showToast(imgs[holder.getAdapterPosition()]);
+                    View view = holder.itemView.findViewById(R.id.im_content);
+                    BigPictureActivity.show(FriendCircleActivity.this,view, imgs[holder.getAdapterPosition()]);
+
                 }
             }) {
                 @Override

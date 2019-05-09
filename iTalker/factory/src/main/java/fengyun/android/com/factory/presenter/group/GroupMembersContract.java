@@ -17,5 +17,7 @@ public interface GroupMembersContract {
     interface View extends BaseContract.RecyclerView<Presenter,MemberUserModel>{
         //获取群的id
         String getGroupId();
+
+        void refreshMembers();
     }
 }

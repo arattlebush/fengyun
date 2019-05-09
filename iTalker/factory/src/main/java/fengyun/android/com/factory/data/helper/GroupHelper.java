@@ -12,6 +12,7 @@ import fengyun.android.com.factory.Factory;
 import fengyun.android.com.factory.R;
 import fengyun.android.com.factory.model.api.RspModel;
 import fengyun.android.com.factory.model.api.group.GroupCreateModel;
+import fengyun.android.com.factory.model.api.group.GroupMemberAddModel;
 import fengyun.android.com.factory.model.card.GroupCard;
 import fengyun.android.com.factory.model.card.GroupMemberCard;
 import fengyun.android.com.factory.model.db.Group;
@@ -200,5 +201,32 @@ public class GroupHelper {
                 .orderBy(GroupMember_Table.user_id, true)
                 .limit(size)
                 .queryCustomList(MemberUserModel.class);
+    }
+
+    // 网络请求进行成员添加
+    public static void addMembers(String groupId, GroupMemberAddModel model, final DataSource.Callback<List<GroupMemberCard>> callback) {
+        RemoteService service = Network.remote();
+        service.groupMemberAdd(groupId, model)
+                .enqueue(new Callback<RspModel<List<GroupMemberCard>>>() {
+                    @Override
+                    public void onResponse(Call<RspModel<List<GroupMemberCard>>> call, Response<RspModel<List<GroupMemberCard>>> response) {
+                        RspModel<List<GroupMemberCard>> rspModel = response.body();
+                        if (rspModel.success()) {
+                            List<GroupMemberCard> memberCards = rspModel.getResult();
+                            if (memberCards != null && memberCards.size() > 0) {
+                                // 进行调度显示
+                                Factory.getGroupCenter().dispatch(memberCards.toArray(new GroupMemberCard[0]));
+                                callback.onDataLoaded(memberCards);
+                            }
+                        } else {
+                            Factory.decodeRspCode(rspModel, null);
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<RspModel<List<GroupMemberCard>>> call, Throwable t) {
+                        callback.onDataNotAvailable(R.string.data_network_error);
+                    }
+                });
     }
 }

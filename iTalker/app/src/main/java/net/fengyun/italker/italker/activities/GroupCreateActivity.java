@@ -205,7 +205,7 @@ public class GroupCreateActivity extends PresenterToolbarActivity<GroupCreateCon
         protected void onBind(GroupCreateContract.ViewModel viewHolder) {
             mPortrait.setup(Glide.with(GroupCreateActivity.this),viewHolder.author.getPortrait());
             mName.setText(viewHolder.author.getName());
-            mSelect.setChecked(viewHolder.isSelect);
+            mSelect.setChecked(viewHolder.isSelected);
         }
     }
 

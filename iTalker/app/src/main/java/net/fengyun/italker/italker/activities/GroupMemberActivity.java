@@ -16,6 +16,7 @@ import net.fengyun.italker.common.app.PresenterToolbarActivity;
 import net.fengyun.italker.common.widget.PortraitView;
 import net.fengyun.italker.common.widget.recycler.RecyclerAdapter;
 import net.fengyun.italker.italker.R;
+import net.fengyun.italker.italker.frags.group.GroupMemberAddFragment;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -24,7 +25,7 @@ import fengyun.android.com.factory.presenter.group.GroupMembersContract;
 import fengyun.android.com.factory.presenter.group.GroupMembersPresenter;
 
 public class GroupMemberActivity extends PresenterToolbarActivity<GroupMembersContract.Presenter>
-        implements GroupMembersContract.View {
+        implements GroupMembersContract.View ,GroupMemberAddFragment.Callback{
 
     private static final String KEY_GROUP_ID = "KEY_GROUP_ID";
     private static final String KEY_GROUP_Admin = "KEY_GROUP_Admin";
@@ -89,6 +90,10 @@ public class GroupMemberActivity extends PresenterToolbarActivity<GroupMembersCo
         super.initData();
         //开始刷新数据
         mPresenter.refresh();
+        // 显示管理员界面，添加成员
+        if (mIsAdmin) {
+            new GroupMemberAddFragment().show(getSupportFragmentManager(), GroupMemberAddFragment.class.getName());
+        }
     }
 
     @Override
@@ -110,6 +115,18 @@ public class GroupMemberActivity extends PresenterToolbarActivity<GroupMembersCo
     @Override
     public String getGroupId() {
         return mGroupId;
+    }
+
+    @Override
+    public void hideLoading() {
+        super.hideLoading();
+    }
+
+    @Override
+    public void refreshMembers() {
+        // 重新加载成员信息
+        if (mPresenter != null)
+            mPresenter.refresh();
     }
 
     class ViewHolder extends RecyclerAdapter.ViewHolder<MemberUserModel> {

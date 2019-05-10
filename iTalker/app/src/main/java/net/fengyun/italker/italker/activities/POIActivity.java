@@ -1,12 +1,16 @@
 package net.fengyun.italker.italker.activities;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.baidu.mapapi.map.BaiduMap;
@@ -65,6 +69,7 @@ public class POIActivity extends AppCompatActivity {
     PoiSearch busPoiSearch;//公交地铁的Poi搜索对象
     BusLineSearch busLineSearch;//公交检索对象
     RoutePlanSearch routePlanSearch;//路线规划
+    TextView text3;
 
 
     private double Latitude;
@@ -84,13 +89,18 @@ public class POIActivity extends AppCompatActivity {
 
     }
 
+
+
+
     private void initBaiduMap() {
         //布局对象
+
         et_city = (EditText) findViewById(R.id.et_city);
         et_key = (EditText) findViewById(R.id.et_key);
         et_around = (EditText) findViewById(R.id.et_around);
         et_line = (EditText) findViewById(R.id.et_line);
         et_start = (EditText) findViewById(R.id.et_start);
+        text3 = (TextView) findViewById(R.id.text3);
         et_around.setText(leix);
         //获取地图控件引用
         mMapView = ((MapFragment) getFragmentManager().findFragmentById(R.id.fragment)).getMapView();
@@ -232,6 +242,7 @@ public class POIActivity extends AppCompatActivity {
         }
 
         //获得POI的详细检索结果，如果发起的是详细检索，这个方法会得到回调(需要uid)
+        @SuppressLint("SetTextI18n")
         @Override
         public void onGetPoiDetailResult(PoiDetailResult poiDetailResult) {
             if (poiDetailResult.error != SearchResult.ERRORNO.NO_ERROR) {
@@ -239,7 +250,9 @@ public class POIActivity extends AppCompatActivity {
                         Toast.LENGTH_SHORT).show();
             } else {// 正常返回结果的时候，此处可以获得很多相关信息
                 //Toast.makeText(getApplication(), poiDetailResult.getName() + ": " + poiDetailResult.getAddress(), Toast.LENGTH_LONG).show();
-                StartWeb(poiDetailResult.getDetailUrl());
+                //StartWeb(poiDetailResult.getDetailUrl());
+                text3.setText(poiDetailResult.getName() + ": " + poiDetailResult.getAddress());
+                //initBaiduMap();
             }
         }
 

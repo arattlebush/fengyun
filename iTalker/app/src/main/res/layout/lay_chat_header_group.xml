@@ -9,16 +9,18 @@
     app:collapsedTitleTextAppearance="@style/TextAppearance.Title"
     app:contentScrim="@color/colorAccent"
     app:expandedTitleGravity="bottom|center_horizontal"
-    app:expandedTitleMarginBottom="@dimen/len_16"
+
+    app:expandedTitleMarginBottom="56dp"
     app:expandedTitleTextAppearance="@style/TextAppearance.AppCompat.Title"
     app:layout_scrollFlags="scroll|exitUntilCollapsed|snap"
     app:title="@string/app_name"
-    app:toolbarId="@id/toolbar">
+    app:toolbarId="@id/toolbar"
+    >
     <!--折叠控件-->
     <ImageView
         android:id="@+id/im_header"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/len_128"
+        android:layout_height="200dp"
         android:contentDescription="@string/app_name"
         android:scaleType="centerCrop"
         android:src="@drawable/default_banner_chat"
@@ -46,12 +48,21 @@
             android:id="@+id/txt_member_more"
             android:layout_width="@dimen/len_32"
             android:layout_height="@dimen/len_32"
+            android:layout_margin="@dimen/len_1"
             android:background="@drawable/sel_bg_clr_32"
             android:gravity="center"
-            android:layout_margin="@dimen/len_1"
             android:padding="@dimen/len_2"
             android:textAppearance="@style/TextAppearance.AppCompat.Caption"
             tools:text="+1" />
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/te"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:hint="测试是大轰动啊好啊好哈到九点多就傲娇大家到啊懂啊几大动静啊啊大啊大大大大啊啊的挨打的挨打的啊大大大啊大啊啊啊的啊i急哦骄傲啊啊的的啊阿达"
+        android:gravity="center"
+        android:textColorHint="@color/white" />
 
 </android.support.design.widget.CollapsingToolbarLayout>

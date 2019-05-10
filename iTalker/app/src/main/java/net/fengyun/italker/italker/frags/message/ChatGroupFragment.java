@@ -44,6 +44,8 @@ public class ChatGroupFragment extends ChatFragment<Group> implements ChatContra
 
     @BindView(R.id.txt_member_more)
     TextView mMemberMore;
+    @BindView(R.id.te)
+    TextView mte;
 
     @Override
     protected int getHeaderLayoutId() {
@@ -70,18 +72,25 @@ public class ChatGroupFragment extends ChatFragment<Group> implements ChatContra
                 });
     }
 
+    //android:contentDescription="@string/app_name"
+
     @Override
     public void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset) {
         super.onOffsetChanged(appBarLayout, verticalOffset);
         View view = mLayMembers;
+        View view1=mte;
         if (view == null)
             return;
         if (verticalOffset == 0) {
             //完全展开，头像是可见的
             mLayMembers.setVisibility(View.VISIBLE);
+            mte.setVisibility(View.VISIBLE);
             view.setScaleX(1);
             view.setScaleY(1);
             view.setAlpha(1);
+            view1.setScaleX(1);
+            view1.setScaleY(1);
+            view1.setAlpha(1);
         } else {
             //abs运算
             verticalOffset = Math.abs(verticalOffset);
@@ -92,6 +101,10 @@ public class ChatGroupFragment extends ChatFragment<Group> implements ChatContra
                 view.setScaleX(0);
                 view.setScaleY(0);
                 view.setAlpha(0);
+                view1.setVisibility(View.INVISIBLE);
+                view1.setScaleX(0);
+                view1.setScaleY(0);
+                view1.setAlpha(0);
             } else {
                 //中间状态
                 float progress = 1 - verticalOffset / (float) totalScrollRange;
@@ -99,6 +112,10 @@ public class ChatGroupFragment extends ChatFragment<Group> implements ChatContra
                 view.setScaleX(progress);
                 view.setScaleY(progress);
                 view.setAlpha(progress);
+                view1.setVisibility(View.VISIBLE);
+                view1.setScaleX(progress);
+                view1.setScaleY(progress);
+                view1.setAlpha(progress);
             }
         }
     }
@@ -107,6 +124,7 @@ public class ChatGroupFragment extends ChatFragment<Group> implements ChatContra
     public void onInit(Group group) {
         //初始化群的信息
         mCollapsingToolbarLayout.setTitle(group.getName());
+        mte.setText(group.getDesc());
         Glide.with(this)
                 .load(group.getPicture())
                 .centerCrop()

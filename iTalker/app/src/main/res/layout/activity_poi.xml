@@ -129,6 +129,18 @@
             android:text="驾车" />
 
     </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+
+        <TextView
+            android:id="@+id/text3"
+            android:layout_width="match_parent"
+            android:layout_height="100dp" />
+
+    </LinearLayout>
 
     <!--百度地图显示界面的碎片-->
     <fragment
@@ -136,5 +148,7 @@
         android:name="com.baidu.mapapi.map.MapFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
+
+
 
 </LinearLayout>

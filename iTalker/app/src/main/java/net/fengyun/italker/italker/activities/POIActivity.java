@@ -250,8 +250,8 @@ public class POIActivity extends AppCompatActivity {
                         Toast.LENGTH_SHORT).show();
             } else {// 正常返回结果的时候，此处可以获得很多相关信息
                 //Toast.makeText(getApplication(), poiDetailResult.getName() + ": " + poiDetailResult.getAddress(), Toast.LENGTH_LONG).show();
-                //StartWeb(poiDetailResult.getDetailUrl());
-                text3.setText(poiDetailResult.getName() + ": " + poiDetailResult.getAddress());
+                StartWeb(poiDetailResult.getDetailUrl());
+                //text3.setText(poiDetailResult.getName() + ": " + poiDetailResult.getAddress());
                 //initBaiduMap();
             }
         }
